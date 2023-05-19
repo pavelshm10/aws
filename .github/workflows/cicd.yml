@@ -7,13 +7,24 @@ on:
     branches:
       - main
 jobs:
-  deploy:
-    runs-on: ubuntu-20.04
+  ci:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+    env:
+      NODE_ENV: "development"
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.1.2
         with:
-          node-version: 16
+          node-version: ${{ matrix.node }}
+
 
       # - name: Build React app
       #   run: npm install && npm run build
