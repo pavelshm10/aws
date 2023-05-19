@@ -24,26 +24,5 @@ jobs:
 
       - name: Run tests
         run: npm test
-  deployment:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to staging
-        run: |
-          # Add your deployment commands here
-
-
-      # - name: Build React app
-      #   run: npm install && npm run build
-
-      - name: Deploy to Elastic Beanstalk
-        uses: einaregilsson/beanstalk-deploy@v16
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: app1
-          environment_name: App1-env
-          # version_label: ${{ github.sha }}
-          region: eu-west-1
 
 
