@@ -43,7 +43,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
           application_name: app1
           environment_name: App1-env
-          version_label: ${{ github.sha }}
+          # version_label: ${{ github.sha }}
           region: eu-west-1
 
 
